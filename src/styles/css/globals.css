@@ -1,5 +1,7 @@
-@import url(./theme/lightTokens.css) (prefers-color-scheme: light);
-@import url(./theme/darkTokens.css) (prefers-color-scheme: dark);
+@import url(./theme/lightTokens.css)
+(prefers-color-scheme: light);
+@import url(./theme/darkTokens.css)
+(prefers-color-scheme: dark);
 @import url(./theme/colors.module.css);
 :root {
   --primary: var(--pal-primary40);
@@ -9,7 +11,9 @@
   --secondary: var(--pal-secondary40);
   --on-secondary: var(--pal-tertiary100);
   --secondary-container: var(--pal-secondary90);
-  --on-secondary-container: var(--pal-secondary10);
+  --on-secondary-container: var(
+    --pal-secondary10
+  );
   --tertiary: var(--pal-tertiary40);
   --on-tertiary: var(--pal-tertiary100);
   --tertiary-container: var(--pal-tertiary90);
@@ -23,7 +27,9 @@
   --surface: var(--pal-neutral95);
   --on-surface: var(--pal-neutral10);
   --surface-variant: var(--pal-neutral-variant90);
-  --on-surface-variant: var(--pal-neutral-variant30);
+  --on-surface-variant: var(
+    --pal-neutral-variant30
+  );
   --outline: var(--pal-neutral-variant50);
   --inverse-on-surface: var(--pal-neutral95);
   --inverse-surface: var(--pal-neutral20);
@@ -43,11 +49,15 @@
     --secondary: var(--pal-secondary80);
     --on-secondary: var(--pal-secondary20);
     --secondary-container: var(--pal-secondary30);
-    --on-secondary-container: var(--pal-secondary90);
+    --on-secondary-container: var(
+      --pal-secondary90
+    );
     --tertiary: var(--pal-tertiary80);
     --on-tertiary: var(--pal-tertiary20);
     --tertiary-container: var(--pal-tertiary30);
-    --on-tertiary-container: var(--pal-tertiary90);
+    --on-tertiary-container: var(
+      --pal-tertiary90
+    );
     --error: var(--pal-error80);
     --error-container: var(--pal-error30);
     --on-error: var(--pal-error20);
@@ -56,15 +66,21 @@
     --on-background: var(--pal-neutral90);
     --surface: var(--pal-neutral10);
     --on-surface: var(--pal-neutral90);
-    --surface-variant: var(--pal-neutral-variant30);
-    --on-surface-variant: var(--pal-neutral-variant80);
+    --surface-variant: var(
+      --pal-neutral-variant30
+    );
+    --on-surface-variant: var(
+      --pal-neutral-variant80
+    );
     --outline: var(--pal-neutral-variant60);
     --inverse-on-surface: var(--pal-neutral10);
     --inverse-surface: var(--pal-neutral90);
     --inverse-primary: var(--pal-primary40);
     --shadow: var(--pal-neutral0);
     --surface-tint: var(--pal-primary80);
-    --outline-variant: var(--pal-neutral-variant30);
+    --outline-variant: var(
+      --pal-neutral-variant30
+    );
     --scrim: var(--pal-neutral0);
   }
 }

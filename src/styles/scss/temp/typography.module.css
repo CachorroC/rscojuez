@@ -14,7 +14,9 @@
   letter-spacing: var(
     --md-sys-typescale-display-large-tracking
   );
-  line-height: var(--md-sys-typescale-display-large-height);
+  line-height: var(
+    --md-sys-typescale-display-large-height
+  );
   text-transform: var(
     --md-sys-typescale-display-large-text-transform
   );
@@ -64,7 +66,9 @@
   letter-spacing: var(
     --md-sys-typescale-display-small-tracking
   );
-  line-height: var(--md-sys-typescale-display-small-height);
+  line-height: var(
+    --md-sys-typescale-display-small-height
+  );
   text-transform: var(
     --md-sys-typescale-display-small-text-transform
   );
@@ -160,11 +164,15 @@
   font-weight: var(
     --md-sys-typescale-body-large-font-weight
   );
-  font-size: var(--md-sys-typescale-body-large-font-size);
+  font-size: var(
+    --md-sys-typescale-body-large-font-size
+  );
   letter-spacing: var(
     --md-sys-typescale-body-large-tracking
   );
-  line-height: var(--md-sys-typescale-body-large-height);
+  line-height: var(
+    --md-sys-typescale-body-large-height
+  );
   text-transform: var(
     --md-sys-typescale-body-large-text-transform
   );
@@ -182,11 +190,15 @@
   font-weight: var(
     --md-sys-typescale-body-medium-font-weight
   );
-  font-size: var(--md-sys-typescale-body-medium-font-size);
+  font-size: var(
+    --md-sys-typescale-body-medium-font-size
+  );
   letter-spacing: var(
     --md-sys-typescale-body-medium-tracking
   );
-  line-height: var(--md-sys-typescale-body-medium-height);
+  line-height: var(
+    --md-sys-typescale-body-medium-height
+  );
   text-transform: var(
     --md-sys-typescale-body-medium-text-transform
   );
@@ -204,11 +216,15 @@
   font-weight: var(
     --md-sys-typescale-body-small-font-weight
   );
-  font-size: var(--md-sys-typescale-body-small-font-size);
+  font-size: var(
+    --md-sys-typescale-body-small-font-size
+  );
   letter-spacing: var(
     --md-sys-typescale-body-small-tracking
   );
-  line-height: var(--md-sys-typescale-body-small-height);
+  line-height: var(
+    --md-sys-typescale-body-small-height
+  );
   text-transform: var(
     --md-sys-typescale-body-small-text-transform
   );
@@ -226,11 +242,15 @@
   font-weight: var(
     --md-sys-typescale-label-large-font-weight
   );
-  font-size: var(--md-sys-typescale-label-large-font-size);
+  font-size: var(
+    --md-sys-typescale-label-large-font-size
+  );
   letter-spacing: var(
     --md-sys-typescale-label-large-tracking
   );
-  line-height: var(--md-sys-typescale-label-large-height);
+  line-height: var(
+    --md-sys-typescale-label-large-height
+  );
   text-transform: var(
     --md-sys-typescale-label-large-text-transform
   );
@@ -248,11 +268,15 @@
   font-weight: var(
     --md-sys-typescale-label-medium-font-weight
   );
-  font-size: var(--md-sys-typescale-label-medium-font-size);
+  font-size: var(
+    --md-sys-typescale-label-medium-font-size
+  );
   letter-spacing: var(
     --md-sys-typescale-label-medium-tracking
   );
-  line-height: var(--md-sys-typescale-label-medium-height);
+  line-height: var(
+    --md-sys-typescale-label-medium-height
+  );
   text-transform: var(
     --md-sys-typescale-label-medium-text-transform
   );
@@ -270,11 +294,15 @@
   font-weight: var(
     --md-sys-typescale-label-small-font-weight
   );
-  font-size: var(--md-sys-typescale-label-small-font-size);
+  font-size: var(
+    --md-sys-typescale-label-small-font-size
+  );
   letter-spacing: var(
     --md-sys-typescale-label-small-tracking
   );
-  line-height: var(--md-sys-typescale-label-small-height);
+  line-height: var(
+    --md-sys-typescale-label-small-height
+  );
   text-transform: var(
     --md-sys-typescale-label-small-text-transform
   );
@@ -292,11 +320,15 @@
   font-weight: var(
     --md-sys-typescale-title-large-font-weight
   );
-  font-size: var(--md-sys-typescale-title-large-font-size);
+  font-size: var(
+    --md-sys-typescale-title-large-font-size
+  );
   letter-spacing: var(
     --md-sys-typescale-title-large-tracking
   );
-  line-height: var(--md-sys-typescale-title-large-height);
+  line-height: var(
+    --md-sys-typescale-title-large-height
+  );
   text-transform: var(
     --md-sys-typescale-title-large-text-transform
   );
@@ -314,11 +346,15 @@
   font-weight: var(
     --md-sys-typescale-title-medium-font-weight
   );
-  font-size: var(--md-sys-typescale-title-medium-font-size);
+  font-size: var(
+    --md-sys-typescale-title-medium-font-size
+  );
   letter-spacing: var(
     --md-sys-typescale-title-medium-tracking
   );
-  line-height: var(--md-sys-typescale-title-medium-height);
+  line-height: var(
+    --md-sys-typescale-title-medium-height
+  );
   text-transform: var(
     --md-sys-typescale-title-medium-text-transform
   );
@@ -336,11 +372,15 @@
   font-weight: var(
     --md-sys-typescale-title-small-font-weight
   );
-  font-size: var(--md-sys-typescale-title-small-font-size);
+  font-size: var(
+    --md-sys-typescale-title-small-font-size
+  );
   letter-spacing: var(
     --md-sys-typescale-title-small-tracking
   );
-  line-height: var(--md-sys-typescale-title-small-height);
+  line-height: var(
+    --md-sys-typescale-title-small-height
+  );
   text-transform: var(
     --md-sys-typescale-title-small-text-transform
   );

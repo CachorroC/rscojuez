@@ -2,13 +2,12 @@
   "name": "rscojuez",
   "version": "0.1.0",
   "private": true,
-  "scripts": { 
-  "start": "next start",  
-  "dev": "next dev",
+  "scripts": {
+    "start": "next start",
+    "dev": "next dev",
     "build": "next build",
     "sass": "sass src/styles/scss:src/styles/css",
     "sassdev": "sass --watch src/styles/scss:src/styles/css",
-    
     "lint": "next lint --fix && next lint"
   },
   "dependencies": {

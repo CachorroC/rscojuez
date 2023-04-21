@@ -27,7 +27,8 @@
       flex-flow: row nowrap;
 
       & > span {
-        font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+        font-variation-settings: "FILL" 0,
+          "wght" 300, "GRAD" 0, "opsz" 24;
       }
       &:link {
         background-color: var(--sf-1);
@@ -49,7 +50,9 @@
       }
       &:hover,
       &:active {
-        background-color: var(--primary-container);
+        background-color: var(
+          --primary-container
+        );
         box-shadow: var(--dp8);
         color: var(--on-primary-container);
         & > p,
@@ -58,7 +61,8 @@
           font-weight: 800;
         }
         & > span {
-          font-variation-settings: "FILL" 1, "wght" 600, "GRAD" 200, "opsz" 48;
+          font-variation-settings: "FILL" 1,
+            "wght" 600, "GRAD" 200, "opsz" 48;
           color: var(--primary);
         }
       }

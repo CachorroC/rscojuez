@@ -1,16 +1,36 @@
 {
-    "extends": [
-        "next/core-web-vitals"
+  "extends": ["next/core-web-vitals"],
+  "rules": {
+    "array-bracket-newline": [
+      "error",
+      {
+        "minItems": 2
+      }
     ],
-    "rules": {
-        "array-bracket-newline": [
-            "error",
-            "always"
-        ],
-        "brace-style": ["error", "always"],
-        "indent": ["error", 4],
-        "linebreak-style": ["error", "unix"],
-        "semi": ["error", "always"],
-        "arrow-body-style": ["error", "as-needed"]
-    }
+    "brace-style": ["error", "stroustrup"],
+    "indent": ["error", 2],
+    "linebreak-style": ["error", "unix"],
+    "semi": ["error", "always"],
+    "arrow-body-style": ["error", "as-needed"],
+    "array-bracket-spacing": ["error", "always"],
+    "arrow-spacing": "error",
+    "block-spacing": "error",
+    "function-call-argument-newline": [
+      "error",
+      "always"
+    ],
+    "function-paren-newline": ["error", "always"],
+    "multiline-ternary": ["error", "always"],
+    "object-curly-newline": ["error", "always"],
+    "object-property-newline": "error",
+    "template-tag-spacing": ["error", "always"],
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "*"
+      }
+    ]
+  }
 }

@@ -68,7 +68,9 @@ export interface Juzgado {
   expediente: string;
   fecha: JuzgadoFecha;
   locationjuzgado: string;
-  obligacion: { [key: string]: number | string };
+  obligacion: {
+    [key: string]: number | string;
+  };
   origen: string;
   procesotype: string;
   radicado: string;
@@ -104,7 +106,7 @@ export interface Oficio {
 }
 
 export interface TypeClass {
-  ''?: string;
+  ""?: string;
 }
 
 export interface Respuesta {
@@ -112,8 +114,8 @@ export interface Respuesta {
 }
 
 export interface Notificaciones {
-  '291': The291;
-  '292': The292;
+  "291": The291;
+  "292": The292;
   fecha?: NotificacionesFecha;
   type: TypeClass | string;
   certimail?: boolean;

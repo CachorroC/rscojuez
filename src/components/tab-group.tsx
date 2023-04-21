@@ -1,6 +1,10 @@
-import Tab from '#@/components/tab';
-import box from '#@/styles/css/box.module.css';
-import { intProceso } from '../app/api/procesos';
+import Tab from "#@/components/tab";
+
+import box from "#@/styles/css/box.module.css";
+
+import {
+  intProceso 
+} from "../app/api/procesos";
 
 export type Item = {
   text: string;
@@ -8,20 +12,26 @@ export type Item = {
   segment?: string;
 };
 
-export const TabGroup = ( {
+export const TabGroup = (
+  {
     path,
     items,
-}: {
+  }: {
   path: string;
   items: intProceso[];
-} ) => (
-    <div className={ box.grid }>
-        { ' ' }
-        { items.map( ( item ) => (
-            <Tab
-                proceso={ item }
-                key={ item.idProceso }
-            />
-        ) ) }
-    </div>
+}
+) => (
+  <div className={box.grid}>
+    {" "}
+    {items.map(
+      (
+        item
+      ) => (
+        <Tab
+          proceso={item}
+          key={item.idProceso}
+        />
+      )
+    )}
+  </div>
 );

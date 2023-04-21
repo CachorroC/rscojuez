@@ -1,31 +1,46 @@
-import { Poiret_One } from 'next/font/google';
+import {
+  Poiret_One 
+} from "next/font/google";
 
-import styles from '#@/styles/css/blog.module.css';
-import Link from 'next/link';
-import box from '#@/styles/css/box.module.css';
-import { intProceso } from '../app/api/procesos';
+import styles from "#@/styles/css/blog.module.css";
 
-const poiret = Poiret_One( {
-    weight: '400',
+import Link from "next/link";
+
+import box from "#@/styles/css/box.module.css";
+
+import {
+  intProceso 
+} from "../app/api/procesos";
+
+const poiret = Poiret_One(
+  {
+    weight: "400",
     subsets: [
-        'latin', 'latin-ext'
+      "latin", "latin-ext"
     ],
-    display: 'swap',
-} );
+    display: "swap",
+  }
+);
 
-export default function Tab ( {
+export default function Tab(
+  {
     proceso,
-}: {
-    proceso: intProceso;
-} ) {
-    const href: string =
-        'Procesos/' + proceso.llaveProceso + '/' + proceso.idProceso;
+  }: {
+  proceso: intProceso;
+}
+) {
+  const href: string =
+    "Procesos/" +
+    proceso.llaveProceso +
+    "/" +
+    proceso.idProceso;
 
-    return (
-        <Link
-            href={ `/Procesos/${ proceso.llaveProceso }/${ proceso.idProceso }` }
-            className={ box.flex }>
-            { proceso.sujetosProcesales }
-        </Link>
-    );
+  return (
+    <Link
+      href={`/Procesos/${proceso.llaveProceso}/${proceso.idProceso}`}
+      className={box.flex}
+    >
+      {proceso.sujetosProcesales}
+    </Link>
+  );
 }

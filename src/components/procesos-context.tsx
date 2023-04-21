@@ -1,4 +1,9 @@
-'use client';
-import { createContext } from 'react';
+"use client";
 
-export const LevelContext = createContext(0);
+import {
+  createContext 
+} from "react";
+
+export const LevelContext = createContext(
+  0
+);
