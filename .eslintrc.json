@@ -1,3 +1,16 @@
 {
-  "extends": "next/core-web-vitals"
+    "extends": [
+        "next/core-web-vitals"
+    ],
+    "rules": {
+        "array-bracket-newline": [
+            "error",
+            "always"
+        ],
+        "brace-style": ["error", "always"],
+        "indent": ["error", 4],
+        "linebreak-style": ["error", "unix"],
+        "semi": ["error", "always"],
+        "arrow-body-style": ["error", "as-needed"]
+    }
 }

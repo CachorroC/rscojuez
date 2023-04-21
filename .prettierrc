@@ -1,0 +1,14 @@
+{
+  "tabWidth": 4,
+  "useTabs": false,
+  "arrowParens": "always",
+  "bracketSameLine": false,
+  "bracketSpacing": true,
+  "singleQuote": false,
+  "htmlWhitespaceSensitivity": "strict",
+  "trailingComma": "es5",
+  "printWidth": 50,
+  "singleAttributePerLine": true,
+  "semi": true,
+  "plugins": []
+}
