@@ -2,7 +2,7 @@ process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
 import {
   NextRequest, NextResponse 
 } from "next/server";
-import { intActuacion, intConsultaActuaciones } from "../../../procesos";
+import { intActuacion, intConsultaActuaciones } from "../../procesos";
 
 export async function GET (
   request : NextRequest

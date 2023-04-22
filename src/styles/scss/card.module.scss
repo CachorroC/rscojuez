@@ -1,17 +1,33 @@
 .layout {
   background-color: var(--sf-2);
   border: 2px dashed var(--primary);
-  border-radius: 2vmax;
+  border-radius: 2vmin;
   color: var(--on-surface);
+  max-height: fit-content;
   box-shadow: var(--dp3);
   text-align: center;
   box-sizing: border-box;
   padding: 2vmin;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: space-evenly;
-  align-items: stretch;
-  align-content: space-around;
+  display: grid;
+  grid-template-columns: 0.5fr repeat(2, 1fr) 0.5fr;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-areas:
+    'sub title title .'
+    '. . . .'
+    '. content content .'
+    '. content content .'
+    '. link link .'
+    '. . . .';
+  @media (max-width: 400px){
+    display: grid;
+      grid-template-columns: 0.5fr repeat(5, 1fr) 0.5fr;
+      grid-template-rows: repeat(3, 1fr);
+      gap: 0px 0px;
+      grid-template-areas:
+        "title title title title . sub sub"
+        ". content content content content content ."
+        ". . link link link . .";
+  }
   .dummytxt {
     height: 6px;
     border: none;
@@ -19,25 +35,31 @@
   }
   .title {
     color: var(--primary);
+    grid-area: title;
     font-family: var(--font-poiret);
   }
   .content {
     text-align: justify;
+    grid-area: content;
     color: var(--on-background);
   }
   .link {
-    margin: 0;
-    min-width: 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      '. . .'
+      '. icon .'
+      '. . .';
+    grid-area: link;
     height: auto;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
     box-shadow: var(--dp-3);
-    justify-content: space-evenly;
     border-radius: 0.5rem;
     padding: 0 5vh;
     & > span {
       margin: 0;
+      grid-area: icon;
     }
     &:link,
     &:visited {
@@ -49,8 +71,8 @@
       }
       & > span {
         color: var(--on-tertiary-container);
-        font-variation-settings: "FILL" 0,
-          "wght" 300, "GRAD" 0, "opsz" 24;
+        font-variation-settings: 'FILL' 0, 'wght' 300,
+          'GRAD' 0, 'opsz' 24;
       }
     }
 
@@ -64,8 +86,8 @@
         font-weight: 800;
       }
       & > span {
-        font-variation-settings: "FILL" 1,
-          "wght" 600, "GRAD" 200, "opsz" 48;
+        font-variation-settings: 'FILL' 1, 'wght' 600,
+          'GRAD' 200, 'opsz' 48;
         color: var(--on-primary);
       }
     }

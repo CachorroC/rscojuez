@@ -4,13 +4,13 @@ import modal from "##/modal.module.css";
 
 import SearchBar, {
   Search,
-} from "#@/lib/context-input-search";
+} from "#@/app/context-input-search";
 
 import {
-  llaves 
+  llaves
 } from "#@/lib/llaves";
 
-export default async function NotFound(
+export default async function NotFound (
 ) {
   const today = new Date(
   );
@@ -20,42 +20,42 @@ export default async function NotFound(
 
   const time = (
   ) => {
-    if (curHr < 12) {
+    if ( curHr < 12 ) {
       const timesegment = "este dia";
 
       return timesegment;
     }
-    else if (curHr < 18) {
+    if ( curHr < 18 ) {
       const timesegment = "la tarde";
 
       return timesegment;
     }
-    else {
-      const timesegment = "la noche";
+    
+    const timesegment = "la noche";
 
-      return timesegment;
-    }
+    return timesegment;
+    
   };
 
   return (
     <>
-      <div className={modal.modal}>
-        <div className={modal.content}>
-          <div className={modal.header}>
+      <div className={ modal.modal }>
+        <div className={ modal.content }>
+          <div className={ modal.header }>
             <span className="material-symbols-outlined">
               close
             </span>
-            <h2 className={typeface.subtitle}>
-              {"No se encuentra"}
+            <h2 className={ typeface.subtitle }>
+              { "No se encuentra" }
             </h2>
           </div>
           <SearchBar />
-          <div className={modal.body}>
-            <p>{`Sentimos que tu consulta no hay podido ser resuelta en ${time(
-            )} de hoy.`}</p>
+          <div className={ modal.body }>
+            <p>{ `Sentimos que tu consulta no hay podido ser resuelta en ${ time(
+            ) } de hoy.` }</p>
             <p>Some other text...</p>
           </div>
-          <div className={modal.footer}>
+          <div className={ modal.footer }>
             <h3>Modal Footer</h3>
           </div>
         </div>

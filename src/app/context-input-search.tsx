@@ -54,41 +54,7 @@ const SearchBar = (
     </form>
   );
 };
-function ProcesoRow (
-  { proceso }: { proceso: intProceso; }
-) {
-  const name = proceso.sujetosProcesales.slice(
-    0,
-    10
-  ).toLocaleLowerCase(
-  );
-  const ultimAct = new Date(
-    proceso.fechaUltimaActuacion
-      ? proceso.fechaUltimaActuacion
-      : ''
-  );
-  return (
-    <Card
-      id={ proceso.idProceso.toString(
-      ) }
-      content={ ultimAct.toLocaleString(
-      ).slice(
-        0,
-        9
-      ) }
-      title={ proceso.sujetosProcesales.toLowerCase(
-      ).split(
-        ' '
-      )[ 0 ] + ' ' + proceso.sujetosProcesales.toLowerCase(
-      ).split(
-        ' '
-      )[ 2 ] }
-      href={ `/Procesos/${ proceso.llaveProceso }/Actuaciones` }
-      icon={ 'heart_plus' } />
 
-
-  );
-}
 export const Search = (
   {
     procesos,
@@ -101,7 +67,7 @@ export const Search = (
   const rows: any[] = [];
   procesos.forEach(
     (
-      proceso
+      proceso, index, array
     ) => {
       if (
         proceso.sujetosProcesales.toLowerCase(
@@ -113,10 +79,7 @@ export const Search = (
         return;
       }
       rows.push(
-        <ProcesoRow
-          proceso={ proceso }
-          key={ proceso.sujetosProcesales }
-        />,
+        <Card index={ index } array={ array } content={ proceso.fechaUltimaActuacion } title={ proceso.sujetosProcesales } href={ `/Procesos/${ proceso.llaveProceso }` } />,
       );
     }
   );

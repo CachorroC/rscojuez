@@ -1,5 +1,5 @@
 import { getProcesoOwn } from '#@/app/Procesos/api/getProcesos';
-import { getActuaciones } from '#@/app/Procesos/[llaveProceso]/Actuaciones/api/getActuaciones';
+import { getActuaciones } from '#@/app/Procesos/[llaveProceso]/Actuaciones/getActuaciones';
 
 import layout from '##/layout.module.css';
 import Card from '#@/components/card';
@@ -17,9 +17,8 @@ export default async function Page (
       {
         actuaciones.map(
           (
-            actuacion, index
-          ) => ( <Card id={ actuacion.consActuacion.toString(
-          ) } key={ index } content={ actuacion.anotacion } title={ actuacion.actuacion } href={ '/' } icon={ 'star' } /> )
+            actuacion, index, array
+          ) => ( <Card key={ index } content={ actuacion.anotacion } title={ actuacion.actuacion } href={ `/Procesos/${params.llaveProceso}` } index={ index } array={ array } /> )
         )
       }
     </div>

@@ -219,32 +219,31 @@ export async function getProcesosRama(
 }
 
 
-export const getProcesosOwn = cache(
-  async (
-  ) =>  {
-    const res = await fetch(
-      `${getBaseUrl(
-      )}/Procesos/api`
+export async function  getProcesosOwn(
+  
+)  {
+  const res = await fetch(
+    `${getBaseUrl(
+    )}/Procesos/api`
+  );
+
+  if (!res.ok) {
+    throw new Error(
+      "no cargan los procesos"
     );
+  }
 
-    if (!res.ok) {
-      throw new Error(
-        "no cargan los procesos"
-      );
-    }
-
-    const procesos =
+  const procesos =
     (await res.json(
     )) as intProceso[];
 
-    if (procesos.length === 0) {
-      notFound(
-      );
-    }
-
-    return procesos;
+  if (procesos.length === 0) {
+    notFound(
+    );
   }
-);
+
+  return procesos;
+}
 
 
 export async function getProcesoOwn(

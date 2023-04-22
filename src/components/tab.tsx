@@ -1,5 +1,4 @@
-import
-{
+import {
   Poiret_One
 } from "next/font/google";
 
@@ -9,8 +8,7 @@ import Link from "next/link";
 
 import box from "##/box.module.css";
 
-import
-{
+import {
   intProceso
 } from "../app/Procesos/procesos";
 
@@ -31,15 +29,9 @@ export default function Tab (
     proceso: intProceso;
   }
 ) {
-  const href: string =
-    "Procesos/" +
-    proceso.llaveProceso +
-    "/" +
-    proceso.idProceso;
-
   return (
     <Link
-      href={ `/Procesos/${ proceso.llaveProceso }/${ proceso.idProceso }` }
+      href={ `/Procesos/${ proceso.llaveProceso }` }
       className={ box.flex }
     >
       { proceso.sujetosProcesales }

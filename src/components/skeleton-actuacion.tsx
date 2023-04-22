@@ -7,7 +7,7 @@ import layout from "##/layout.module.css";
 import box from "#s/box.module.scss";
 
 import {
-  poiret 
+  poiret
 } from "./typeface";
 
 import card from "##/card.module.css";
@@ -16,17 +16,17 @@ export const SkeletonActuacion = (
   {
     isLoading,
   }: {
-  isLoading?: boolean;
-}
+    isLoading?: boolean;
+  }
 ) => {
-  if (isLoading) {
+  if ( isLoading ) {
     return (
-      <div className={box.container}>
-        <div className={layout.card}>
-          <h1 className={poiret.className}>
+      <div className={ box.container }>
+        <div className={ layout.card }>
+          <h1 className={ poiret.className }>
             Cargando
           </h1>
-          <hr className={card.dummytxt}></hr>
+          <hr className={ card.dummytxt }></hr>
         </div>
       </div>
     );

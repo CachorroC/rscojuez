@@ -13,12 +13,14 @@
     "semi": ["error", "always"],
     "arrow-body-style": ["error", "as-needed"],
     "array-bracket-spacing": ["error", "always"],
-   
+
     "block-spacing": "error",
-    "function-call-argument-newline": [
+    "function-call-argument-newline": ["error", "always"],
+    "array-callback-return": [
       "error",
-      "always"
+      { "checkForEach": true }
     ],
+    "no-else-return": ["error", { "allowElseIf": false }],
     "function-paren-newline": ["error", "always"],
     "multiline-ternary": ["error", "always"],
     "object-property-newline": "error",

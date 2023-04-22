@@ -4,7 +4,6 @@ import Link from "next/link";
 
 import styles from "##/navbar.module.css";
 
-import { } from "#@/lib/links";
 
 import {
   useSelectedLayoutSegment
@@ -48,7 +47,9 @@ export default function NavItem<
     >
       { icon && (
         <span className="material-symbols-outlined">
-          { icon }
+          { isActive
+            ? "heart"
+            : icon }
         </span>
       ) }
       <p className={ navbar.title }>{ name }</p>

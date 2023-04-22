@@ -7,6 +7,7 @@ import {
   intConsultaNumeroRadicacion,
   intProceso,
 } from "#@/app/Procesos/procesos";
+import { notFound } from "next/navigation";
 export async function GET(
   request: NextRequest
 ) {
@@ -86,7 +87,18 @@ export async function GET(
     );
   }
 
-  const procesos = data;
+  const procesos = data.map(
+    (
+      dataItem
+    ) => {
+      if ( !dataItem.sujetosProcesales.includes(
+        'PROCESO PRIVADO' 
+      ) ) {
+        return dataItem;
+        ;
+      }
+    }
+  );
 
   return new NextResponse(
     JSON.stringify(

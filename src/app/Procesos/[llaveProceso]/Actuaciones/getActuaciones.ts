@@ -6,8 +6,8 @@ import {
   intActuacion,
   intConsultaActuaciones,
   intConsultaNumeroRadicacion,
-} from "../../../procesos";
-import { getBaseUrl } from "../../../../../lib/getBaseUrl";
+} from "../../procesos";
+import { getBaseUrl } from "../../../../lib/getBaseUrl";
 import { notFound } from "next/navigation";
 
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
@@ -4062,38 +4062,38 @@ export async function getActuacionesFile(
 
             return;
           }
-          else {
-            radicado.procesos.forEach(
-              (
-                proceso, i
-              ) => {
-                console.log(
-                  "proceso:" + proceso
-                );
+          
+          radicado.procesos.forEach(
+            (
+              proceso, i
+            ) => {
+              console.log(
+                "proceso:" + proceso
+              );
 
-                console.log(
-                  "i:" + i
-                );
+              console.log(
+                "i:" + i
+              );
 
-                setTimeout(
-                  (
-                  ) => {
-                    const idProceso =
+              setTimeout(
+                (
+                ) => {
+                  const idProceso =
                   proceso.idProceso;
 
-                    console.log(
-                      "idProceso:" + idProceso
-                    );
+                  console.log(
+                    "idProceso:" + idProceso
+                  );
 
-                    fetchActuacionesFile(
-                      idProceso
-                    );
-                  },
-                  i * 10000
-                );
-              }
-            );
-          }
+                  fetchActuacionesFile(
+                    idProceso
+                  );
+                },
+                i * 10000
+              );
+            }
+          );
+          
         },
         index * 1000
       );
@@ -4112,7 +4112,7 @@ export async function getActuaciones (
 ) {
   const res = await fetch(
     `${getBaseUrl(
-    )}/Procesos/Actuaciones/api?idProceso=${idProceso}`
+    )}/Procesos/[llaveProceso]/Actuaciones?idProceso=${idProceso}`
   );
   if (!res.ok) {
     // Render the closest `error.js` Error Boundary

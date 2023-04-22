@@ -2,9 +2,6 @@
 
 import styles from "##/navbar.module.css";
 
-import {
-  demos
-} from "#@/lib/links";
 
 import React, {
   ReactNode,
@@ -26,6 +23,8 @@ import "material-symbols";
 import NavItem from "#@/components/navitem";
 
 import layout from "#s/layout.module.scss";
+import { Search } from "../app/context-input-search";
+import { getProcesosOwn } from "../app/Procesos/api/getProcesos";
 
 const poiret = Poiret_One(
   {
@@ -69,33 +68,7 @@ export default function Navbar (
       className={ styles.drawer }
       onClick={ close }
     >
-      { demos.map(
-        (
-          section
-        ) => (
-          <nav
-            key={ section.name }
-            className={ styles.menu }
-          >
-            <h1 className={ poiret.className }>
-              { section.name }
-            </h1>
-            { section.items.map(
-              (
-                link
-              ) => (
-                <NavItem
-                  key={ link.id }
-                  icon={ link.icon }
-                  close={ close }
-                  name={ link.name }
-                  href={ link.href }
-                />
-              )
-            ) }
-          </nav>
-        )
-      ) }
+      {/* Procesos  */ }
     </div>
   );
 

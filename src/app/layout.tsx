@@ -1,48 +1,31 @@
 import "##/globals.css";
-
 import Navbar from "#@/components/navbar";
-
 import layout from "#s/layout.module.scss";
-
 import type {
   Metadata
 } from "next";
-
 import "material-symbols";
-
-import Footer from "../components/footer";
-
-import
-{
+import Footer from "#@/components/footer";
+import {
   NavProvider
 } from "#@/app/navigator-context";
-
-import
-{
+import {
   SearchProvider
-} from "./search-context";
-
-import SearchBar from "../lib/context-input-search";
-
-import
-{
+} from "#@/app/search-context";
+import {
   getProcesosOwn
-} from "./Procesos/api/getProcesos";
-
+} from "#@/app/Procesos/api/getProcesos";
 import NavButton, {
   Nav,
-} from "./context-click-counter";
-
-import
-{
+} from "#@/app/context-click-counter";
+import {
   ReactNode
 } from "react";
-
-import
-{
+import {
   Poiret_One,
   Roboto_Mono,
 } from "next/font/google";
+import SearchBar from "#@/app/context-input-search";
 
 export const metadata: Metadata = {
   title: "R&S Asesoría Jurídica",

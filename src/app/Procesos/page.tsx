@@ -2,6 +2,7 @@ import {
   getProcesosOwn
 } from "#@/app/Procesos/api/getProcesos";
 import Card from "#@/components/card";
+import layout from '##/layout.module.css';
 
 export default async function Page (
 ) {
@@ -15,9 +16,14 @@ export default async function Page (
       const id = ( proceso.idProceso + index ).toString(
       );
       return (
-        <Card id={ id } key={ id } content={ proceso.fechaUltimaActuacion } title={ proceso.sujetosProcesales } href={ `/Procesos/${ proceso.llaveProceso }` } icon={ "" } />
+        <Card key={ index } content={ proceso.fechaUltimaActuacion } title={ proceso.sujetosProcesales } index={ index } array={ array } href={ "/Procesos" } />
       );
 
     }
+  );
+  return (
+    <div className={ layout.procesos }>
+      { Proceso }
+    </div>
   );
 }

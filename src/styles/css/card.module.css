@@ -1,17 +1,26 @@
 .layout {
   background-color: var(--sf-2);
   border: 2px dashed var(--primary);
-  border-radius: 2vmax;
+  border-radius: 2vmin;
   color: var(--on-surface);
+  max-height: fit-content;
   box-shadow: var(--dp3);
   text-align: center;
   box-sizing: border-box;
   padding: 2vmin;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: space-evenly;
-  align-items: stretch;
-  align-content: space-around;
+  display: grid;
+  grid-template-columns: 0.5fr repeat(2, 1fr) 0.5fr;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-areas: "sub title title ." ". . . ." ". content content ." ". content content ." ". link link ." ". . . .";
+}
+@media (max-width: 400px) {
+  .layout {
+    display: grid;
+    grid-template-columns: 0.5fr repeat(5, 1fr) 0.5fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 0px 0px;
+    grid-template-areas: "title title title title . sub sub" ". content content content content content ." ". . link link link . .";
+  }
 }
 .layout .dummytxt {
   height: 6px;
@@ -20,26 +29,29 @@
 }
 .layout .title {
   color: var(--primary);
+  grid-area: title;
   font-family: var(--font-poiret);
 }
 .layout .content {
   text-align: justify;
+  grid-area: content;
   color: var(--on-background);
 }
 .layout .link {
-  margin: 0;
-  min-width: 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas: ". . ." ". icon ." ". . .";
+  grid-area: link;
   height: auto;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
   box-shadow: var(--dp-3);
-  justify-content: space-evenly;
   border-radius: 0.5rem;
   padding: 0 5vh;
 }
 .layout .link > span {
   margin: 0;
+  grid-area: icon;
 }
 .layout .link:link, .layout .link:visited {
   background-color: var(--primary-container);

@@ -1,9 +1,8 @@
 "use client";
 
-import
-{
+import {
   useNavigator
-} from "./navigator-context";
+} from "#@/app/navigator-context";
 
 import React from "react";
 
@@ -11,24 +10,19 @@ import box from "##/box.module.css";
 
 import layout from "#s/layout.module.scss";
 
-import
-{
+import {
   useSearch
-} from "./search-context";
+} from "#@/app/search-context";
 
 import Link from "next/link";
 
-import
-{
-  poiret
-} from "../components/typeface";
 
 import Card from "#@/components/card";
 
-import
-{
+import {
   intProceso
-} from "./Procesos/procesos";
+} from "#@/app/Procesos/procesos";
+import CardSkeleton from "#@/components/card-skeleton";
 
 const NavButton = (
 ) => {
@@ -87,7 +81,7 @@ export const Nav = (
 
   procesos.forEach(
     (
-      proceso
+      proceso, index, array
     ) => {
       const name = proceso.sujetosProcesales;
 
@@ -98,18 +92,18 @@ export const Nav = (
       );
 
       const months = [
-        "January",
-        "February",
-        "March",
-        "April",
+        "Ene",
+        "Feb",
+        "Mar",
+        "Abr",
         "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
+        "Junio",
+        "Julio",
+        "Ago",
+        "Sept",
+        "Oct",
+        "Nov",
+        "Dec",
       ];
 
       const month = months[ ultimAct.getMonth(
@@ -129,13 +123,11 @@ export const Nav = (
 
       rows.push(
         <Card
-          id={ proceso.idProceso.toString(
-          ) }
+
           content={ month }
           title={ name }
-          href={ `/Actuaciones/${ proceso.idProceso }` }
-          icon={ "dataset_linked" }
-        />
+          href={ `/Procesos/${ proceso.llaveProceso }` }
+          icon={ "dataset_linked" } index={ index } array={ array } />
       );
     }
   );
@@ -145,7 +137,7 @@ export const Nav = (
       <div className={ layout.sidenav }>{ rows }</div>
     );
   }
-  else if ( !isOpen ) {
+  if ( !isOpen ) {
     return (
       <div className={ layout.sidenav }>
         <button
@@ -161,27 +153,18 @@ export const Nav = (
           </span>
         </button>
 
-        <Card
-          id={ "2" }
-          content={ "" }
-          title={ "Procesos" }
-          href={ "/Procesos" }
-          icon={ "home_storage" }
-        />
-        <Card
-          id={ "3" }
-          content={ "" }
-          title={ "Bancolombia" }
-          href={ "/api/hello" }
-          icon={ "account_balance" }
-        />
-        <Card
-          id={ "4" }
-          content={ "" }
-          title={ "Reintegra" }
-          href={ "/api/procesos" }
-          icon={ "integration_instructions" }
-        />
+        <CardSkeleton />
+        <CardSkeleton />
+        <CardSkeleton />
+        <CardSkeleton />
+        <CardSkeleton />
+        <CardSkeleton />
+        <CardSkeleton />
+        <CardSkeleton />
+        <CardSkeleton />
+        <CardSkeleton />
+        <CardSkeleton />
+        <CardSkeleton />
       </div>
     );
   }
