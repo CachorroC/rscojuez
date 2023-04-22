@@ -79,7 +79,7 @@ export async function GET(
 
     return new NextResponse(
       JSON.stringify(
-        procesos ?? null
+        procesos 
       ),
       {
         status: 200,

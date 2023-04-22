@@ -5,32 +5,27 @@ import {
   useSelectedLayoutSegments,
 } from "next/navigation";
 
-export function LayoutHooks(
-) {
+export function LayoutHooks() {
   const selectedLayoutSegment =
-    useSelectedLayoutSegment(
-    );
+    useSelectedLayoutSegment();
 
   const selectedLayoutSegments =
-    useSelectedLayoutSegments(
-    );
+    useSelectedLayoutSegments();
 
-  return selectedLayoutSegment
-    ? (
-      <div className="overflow-x-auto text-sm text-white [color-scheme:dark]">
-        <pre>
-          {JSON.stringify(
-            {
-              useSelectedLayoutSegment:
+  return selectedLayoutSegment ? (
+    <div className="overflow-x-auto text-sm text-white [color-scheme:dark]">
+      <pre>
+        {JSON.stringify(
+          {
+            useSelectedLayoutSegment:
               selectedLayoutSegment,
-              useSelectedLayoutSegments:
+            useSelectedLayoutSegments:
               selectedLayoutSegments,
-            },
-            null,
-            2
-          )}
-        </pre>
-      </div>
-    )
-    : null;
+          },
+          null,
+          2
+        )}
+      </pre>
+    </div>
+  ) : null;
 }

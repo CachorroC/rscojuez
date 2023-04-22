@@ -1,47 +1,50 @@
+"use client";
+
 import Link from "next/link";
 
-import styles from "#@/styles/css/navbar.module.css";
+import styles from "##/navbar.module.css";
 
-import {
-  type Item 
-} from "#@/lib/links";
+import {} from "#@/lib/links";
 
-import {
-  useSelectedLayoutSegment 
-} from "next/navigation";
+import { useSelectedLayoutSegment } from "next/navigation";
 
 import "material-symbols";
 
-import box from "#@/styles/css/box.module.css";
+import box from "##/box.module.css";
 
-export default function NavItem(
-  {
-    link,
-    className,
-    close,
-  }: {
-  link: Item;
-  className: string;
+import { Route } from "next";
+
+import navbar from "#s/navbar.module.scss";
+
+export default function NavItem<
+  X extends string
+>({
+  icon,
+  name,
+  href,
+  close,
+}: {
+  icon: string;
+  name: string;
+  href: Route<X> | URL;
   close: () => false | void;
-}
-) {
-  const segment = useSelectedLayoutSegment(
-  );
+}) {
+  const segment = useSelectedLayoutSegment();
 
-  const isActive = link.href === segment;
+  const isActive = href === segment;
 
   return (
     <Link
       onClick={close}
-      href={`/Procesos/${link.href}`}
-      className={`${styles.link} ${box.container}`}
+      href={href}
+      className={navbar.link}
     >
-      <span className="material-symbols-outlined">
-        {isActive
-          ? "favorite"
-          : link.icon}
-      </span>
-      <p className={className}>{link.name}</p>
+      {icon && (
+        <span className="material-symbols-outlined">
+          {icon}
+        </span>
+      )}
+      <p className={navbar.title}>{name}</p>
     </Link>
   );
 }

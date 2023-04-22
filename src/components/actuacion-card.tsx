@@ -1,32 +1,24 @@
-import layout from "#@/styles/css/layout.module.css";
+import layout from "##/layout.module.css";
 
-import typeface from "#@/styles/css/typeface.module.css";
+import typeface from "##/typeface.module.css";
 
-import box from "#@/styles/css/box.module.css";
+import box from "##/box.module.css";
 
-import {
-  poiret 
-} from "./typeface";
+import { poiret } from "./typeface";
 
-import card from "#@/styles/css/card.module.css";
+import card from "##/card.module.css";
 
-import {
-  intActuacion 
-} from "../app/api/procesos";
+import { intActuacion } from "../app/api/procesos";
 
-export function Actuaciones(
-  {
-    actuaciones,
-  }: {
+export function Actuaciones({
+  actuaciones,
+}: {
   actuaciones: intActuacion[];
-}
-) {
+}) {
   return (
     <div className={box.grid}>
       {actuaciones.map(
-        (
-          actuacion: intActuacion
-        ) => (
+        (actuacion: intActuacion) => (
           <ActuacionCard
             key={actuacion.consActuacion}
             actuacion={actuacion}
@@ -37,13 +29,11 @@ export function Actuaciones(
   );
 }
 
-export function ActuacionCard(
-  {
-    actuacion,
-  }: {
+export function ActuacionCard({
+  actuacion,
+}: {
   actuacion: intActuacion;
-}
-) {
+}) {
   return (
     <div
       className={card.layout}

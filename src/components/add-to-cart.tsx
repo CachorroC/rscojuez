@@ -1,44 +1,26 @@
 "use client";
 
-import {
-  useRouter 
-} from "next/navigation";
+import { useRouter } from "next/navigation";
 
-import {
-  useTransition 
-} from "react";
+import { useTransition } from "react";
 
-import {
-  useCartCount 
-} from "./cart-count-context";
+import { useCartCount } from "./cart-count-context";
 
-export function AddToCart(
-  {
-    initialCartCount,
-  }: {
+export function AddToCart({
+  initialCartCount,
+}: {
   initialCartCount: number;
-}
-) {
-  const router = useRouter(
-  );
+}) {
+  const router = useRouter();
 
-  const [
-    isPending, startTransition
-  ] =
-    useTransition(
-    );
+  const [isPending, startTransition] =
+    useTransition();
 
-  const [
-    , setOptimisticCartCount
-  ] =
-    useCartCount(
-    );
+  const [, setOptimisticCartCount] =
+    useCartCount();
 
-  const addToCart = (
-  ) => {
-    setOptimisticCartCount(
-      initialCartCount + 1
-    );
+  const addToCart = () => {
+    setOptimisticCartCount(initialCartCount + 1);
 
     // update the cart count cookie
     document.cookie = `_cart_count=${
@@ -50,22 +32,16 @@ export function AddToCart(
     // await fetch(`https://api.acme.com/...`);
 
     // Use a transition and isPending to create inline loading UI
-    startTransition(
-      (
-      ) => {
-        setOptimisticCartCount(
-          null
-        );
+    startTransition(() => {
+      setOptimisticCartCount(null);
 
-        // Refresh the current route and fetch new data from the server without
-        // losing client-side browser or React state.
-        router.refresh(
-        );
+      // Refresh the current route and fetch new data from the server without
+      // losing client-side browser or React state.
+      router.refresh();
 
       // We're working on more fine-grained data mutation and revalidation:
       // https://beta.nextjs.org/docs/data-fetching/mutating
-      }
-    );
+    });
   };
 
   return (
@@ -75,22 +51,20 @@ export function AddToCart(
       disabled={isPending}
     >
       Add to Cart
-      {isPending
-        ? (
+      {isPending ? (
+        <div
+          className="absolute right-2 top-1.5"
+          role="status"
+        >
           <div
-            className="absolute right-2 top-1.5"
-            role="status"
-          >
-            <div
-              className="
+            className="
           h-4 w-4 animate-spin rounded-full border-[3px] border-white border-r-transparent"
-            />
-            <span className="sr-only">
+          />
+          <span className="sr-only">
             Loading...
-            </span>
-          </div>
-        )
-        : null}
+          </span>
+        </div>
+      ) : null}
     </button>
   );
 }

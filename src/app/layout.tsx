@@ -1,38 +1,28 @@
-import "#@/styles/css/globals.css";
+import "##/globals.css";
 
 import Navbar from "#@/components/navbar";
 
-import layout from "#@/styles/scss/layout.module.scss";
+import layout from "#s/layout.module.scss";
 
-import type {
-  Metadata
-} from "next";
+import type { Metadata } from "next";
 
 import "material-symbols";
 
 import Footer from "../components/footer";
 
-import {
-  NavProvider
-} from "#@/app/navigator-context";
+import { NavProvider } from "#@/app/navigator-context";
 
-import {
-  SearchProvider
-} from "./search-context";
+import { SearchProvider } from "./search-context";
 
 import SearchBar from "../lib/context-input-search";
 
-import {
-  getProcesosOwn
-} from "./api/procesos/getProcesos";
+import { getProcesosOwn } from "./api/procesos/getProcesos";
 
 import NavButton, {
   Nav,
 } from "./context-click-counter";
 
-import {
-  ReactNode
-} from "react";
+import { ReactNode } from "react";
 
 import {
   Poiret_One,
@@ -45,9 +35,7 @@ export const metadata: Metadata = {
   generator: "R&S Asesoría Jurídica",
   applicationName: "R&S Asesoría Jurídica",
   referrer: "origin-when-cross-origin",
-  keywords: [
-    "Next.js", "React", "JavaScript"
-  ],
+  keywords: ["Next.js", "React", "JavaScript"],
   authors: [
     {
       name: "cam",
@@ -72,8 +60,7 @@ export const metadata: Metadata = {
   manifest:
     "https://app.rsasesorjuridico.com/manifest.json",
   publisher: "CachorroC",
-  alternates: {
-  },
+  alternates: {},
   formatDetection: {
     email: false,
     address: false,
@@ -138,53 +125,43 @@ export const metadata: Metadata = {
   },
 };
 
-const roboto_mono = Roboto_Mono(
-  {
-    subsets: [ "latin" ],
-    variable: "--font-roboto-mono",
-    display: "swap",
-  }
-);
+const roboto_mono = Roboto_Mono({
+  subsets: ["latin"],
+  variable: "--font-roboto-mono",
+  display: "swap",
+});
 
-const poiret = Poiret_One(
-  {
-    weight: "400",
-    variable: "--font-poiret",
-    subsets: [
-      "latin",
-      "latin-ext"
-    ],
-    display: "swap",
-  }
-);
+const poiret = Poiret_One({
+  weight: "400",
+  variable: "--font-poiret",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+});
 
-export default async function RootLayout (
-  {
-    children,
-  }: {
-    children: ReactNode;
-  }
-) {
-  const procesos = await getProcesosOwn(
-  );
+export default async function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  const procesos = await getProcesosOwn();
 
   return (
     <html
       lang="es"
-      className={ `${ poiret.variable } ${ roboto_mono.variable } [color-scheme: light dark]` }
+      className={`${poiret.variable} ${roboto_mono.variable} [color-scheme: light dark]`}
     >
       <body>
         <SearchProvider>
           <NavProvider>
-            <div className={ layout.container }>
+            <div className={layout.container}>
               <Navbar>
                 <NavButton />
                 <SearchBar />
               </Navbar>
 
-              { children }
+              {children}
 
-              <Nav procesos={ procesos } />
+              <Nav procesos={procesos} />
               <Footer />
             </div>
           </NavProvider>

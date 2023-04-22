@@ -8,24 +8,18 @@ import {
   useSelectedLayoutSegments,
 } from "next/navigation";
 
-export function HooksClient(
-) {
-  const pathname = usePathname(
-  );
+export function HooksClient() {
+  const pathname = usePathname();
 
-  const params = useParams(
-  );
+  const params = useParams();
 
   const selectedLayoutSegment =
-    useSelectedLayoutSegment(
-    );
+    useSelectedLayoutSegment();
 
   const selectedLayoutSegments =
-    useSelectedLayoutSegments(
-    );
+    useSelectedLayoutSegments();
 
-  const searchParams = useSearchParams(
-  );
+  const searchParams = useSearchParams();
 
   return (
     <div className="overflow-x-auto text-sm text-white [color-scheme:dark]">
@@ -37,11 +31,9 @@ export function HooksClient(
             useParams: params,
             useSearchParams: searchParams
               ? Object.fromEntries(
-                searchParams.entries(
+                  searchParams.entries()
                 )
-              )
-              : {
-              },
+              : {},
             useSelectedLayoutSegment:
               selectedLayoutSegment,
             useSelectedLayoutSegments:

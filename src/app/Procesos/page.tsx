@@ -1,12 +1,16 @@
 import Card from "../../components/card";
 
 import {
-  getProcesosOwn 
+  getProcesosOwn
 } from "../api/procesos/getProcesos";
 
-import box from "#@/styles/css/box.module.css";
+import box from "##/box.module.css";
 
-/*  */ export default async function Page(
+import {
+  Suspense
+} from "react";
+
+/*  */ export default async function Page (
 ) {
   const procesos = await getProcesosOwn(
   );
@@ -16,29 +20,38 @@ import box from "#@/styles/css/box.module.css";
       <h1 className="text-xl font-bold">
         Client Context
       </h1>
-      <div className={box.container}>
-        {procesos.map(
-          (
-            proceso
-          ) => (
-            <Card
-              id={proceso.idProceso.toString(
-              )}
-              key={proceso.idProceso}
-              content={
-                proceso.fechaUltimaActuacion
-                  ? proceso.fechaUltimaActuacion
-                  : JSON.stringify(
-                    proceso
-                  )
-              }
-              title={proceso.sujetosProcesales}
-              href={`/Procesos/${proceso.llaveProceso}`}
-              icon={"book"}
-            />
-          )
-        )}
-      </div>
+
+      <Suspense
+        fallback={
+          <div className={ box.container }>
+            <p>loading ...</p>
+          </div>
+        }
+      >
+        <div className={ box.container }>
+          { procesos.map(
+            (
+              proceso
+            ) => (
+              <Card
+                id={ proceso.idProceso.toString(
+                ) }
+                key={ proceso.idProceso }
+                content={
+                  proceso.fechaUltimaActuacion
+                    ? proceso.fechaUltimaActuacion
+                    : JSON.stringify(
+                      proceso
+                    )
+                }
+                title={ proceso.sujetosProcesales }
+                href={ `/Procesos/${ proceso.llaveProceso }` }
+                icon={ "book" }
+              />
+            )
+          ) }
+        </div>
+      </Suspense>
 
       <ul>
         <li>

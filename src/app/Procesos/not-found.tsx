@@ -1,36 +1,28 @@
-import typeface from "#@/styles/css/typeface.module.css";
+import typeface from "##/typeface.module.css";
 
-import modal from "#@/styles/css/modal.module.css";
+import modal from "##/modal.module.css";
 
 import SearchBar, {
   Search,
 } from "#@/lib/context-input-search";
 
-import {
-  llaves 
-} from "#@/lib/llaves";
+import { llaves } from "#@/lib/llaves";
 
-export default async function NotFound(
-) {
-  const today = new Date(
-  );
+export default async function NotFound() {
+  const today = new Date();
 
-  const curHr = today.getHours(
-  );
+  const curHr = today.getHours();
 
-  const time = (
-  ) => {
+  const time = () => {
     if (curHr < 12) {
       const timesegment = "este dia";
 
       return timesegment;
-    }
-    else if (curHr < 18) {
+    } else if (curHr < 18) {
       const timesegment = "la tarde";
 
       return timesegment;
-    }
-    else {
+    } else {
       const timesegment = "la noche";
 
       return timesegment;
@@ -51,8 +43,7 @@ export default async function NotFound(
           </div>
           <SearchBar />
           <div className={modal.body}>
-            <p>{`Sentimos que tu consulta no hay podido ser resuelta en ${time(
-            )} de hoy.`}</p>
+            <p>{`Sentimos que tu consulta no hay podido ser resuelta en ${time()} de hoy.`}</p>
             <p>Some other text...</p>
           </div>
           <div className={modal.footer}>

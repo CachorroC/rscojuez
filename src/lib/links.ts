@@ -1,15 +1,4 @@
-import Link from "next/link";
-
-export interface Item {
-  name: string;
-  icon: string;
-  description?: string;
-  id: number;
-
-  href?: string | null;
-}
-
-export const linksInternos: Item[] = [
+export const linksInternos = [
   {
     href: "/blog",
     name: "blog",
@@ -47,19 +36,19 @@ export const demos: {
     name: "Links Internos",
     items: [
       {
-        href: "Bancolombia",
-        name: "Bancolombia",
+        href: "/Procesos",
+        name: "Procesos",
         icon: "account_balance",
         id: 2,
       },
       {
-        href: "Reintegra",
+        href: "/Procesos",
         name: "Reintegra",
         icon: "integration_instructions",
         id: 3,
       },
       {
-        href: "",
+        href: "/",
         name: "Procesos",
         icon: "phishing",
         id: 4,
@@ -74,13 +63,15 @@ export const demos: {
   },
   {
     name: "Links Externos",
-    items: [ {
-      name: "Dash Spotify",
-      href: "not-found",
-      icon: "search_off",
-      id: 12,
-      description:
+    items: [
+      {
+        name: "Dash Spotify",
+        href: "/",
+        icon: "search_off",
+        id: 12,
+        description:
           "Create Not Found UI for specific parts of an app",
-    }, ],
+      },
+    ],
   },
 ];

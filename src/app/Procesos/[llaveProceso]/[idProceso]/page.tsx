@@ -1,25 +1,25 @@
 import {
-  getBaseUrl 
+  getBaseUrl
 } from "#@/lib/getBaseUrl";
 
-import box from "#@/styles/scss/box.module.scss";
+import box from "#s/box.module.scss";
 
 import {
-  Suspense 
+  Suspense
 } from "react";
 
 import {
-  Actuaciones 
+  Actuaciones
 } from "#@/components/actuacion-card";
 
 import {
-  Procesos 
+  Procesos
 } from "#@/components/proceso-card";
 
-import card from "#@/styles/css/card.module.css";
+import card from "##/card.module.css";
 
 import {
-  Search 
+  Search
 } from "#@/lib/context-input-search";
 
 import {
@@ -28,20 +28,20 @@ import {
 } from "#@/app/api/actuaciones/getActuaciones";
 
 import {
-  getProcesosOwn 
+  getProcesosOwn
 } from "#@/app/api/procesos/getProcesos";
 
-process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
+process.env[ "NODE_TLS_REJECT_UNAUTHORIZED" ] = "0";
 
-export default async function Page(
+export default async function Page (
   {
     params,
   }: {
-  params: {
-    llaveProceso: string;
-    idProceso: number;
-  };
-}
+    params: {
+      llaveProceso: string;
+      idProceso: number;
+    };
+  }
 ) {
   const actuacionesData = fetchActuaciones(
     params.idProceso
@@ -61,29 +61,29 @@ export default async function Page(
     );
 
   return (
-    <div className={box.container}>
-      <h1 className={card.title}>
-        {params.llaveProceso}
+    <div className={ box.container }>
+      <h1 className={ card.title }>
+        { params.llaveProceso }
       </h1>
-      <Search procesos={procesos} />
+
       <Suspense
         fallback={
-          <div className={box.container}>
+          <div className={ box.container }>
             loading ...
           </div>
         }
       >
-        <Actuaciones actuaciones={actuaciones} />
+        <Actuaciones actuaciones={ actuaciones } />
       </Suspense>
-      <Suspense
+      {/* <Suspense
         fallback={
-          <div className={box.container}>
+          <div className={ box.container }>
             loading ...
           </div>
         }
       >
-        <Procesos procesos={procesos} />
-      </Suspense>
+        <Procesos procesos={ procesos } />
+      </Suspense> */}
     </div>
   );
 }

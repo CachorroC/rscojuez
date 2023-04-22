@@ -1,53 +1,38 @@
-import {
-  getBaseUrl 
-} from "#@/lib/getBaseUrl";
+import { getBaseUrl } from "#@/lib/getBaseUrl";
 
-import box from "#@/styles/scss/box.module.scss";
+import box from "#s/box.module.scss";
 
-import {
-  Suspense 
-} from "react";
+import { Suspense } from "react";
 
-import {
-  Actuaciones 
-} from "#@/components/actuacion-card";
+import { Actuaciones } from "#@/components/actuacion-card";
 
-import {
-  Procesos 
-} from "#@/components/proceso-card";
+import { Procesos } from "#@/components/proceso-card";
 
-import card from "#@/styles/css/card.module.css";
+import card from "##/card.module.css";
 
-import {
-  Search 
-} from "#@/lib/context-input-search";
+import { Search } from "#@/lib/context-input-search";
 
 import {
   fetchActuaciones,
   getActuaciones,
 } from "../../api/actuaciones/getActuaciones";
 
-import {
-  getProcesosOwn 
-} from "../../api/procesos/getProcesos";
+import { getProcesosOwn } from "../../api/procesos/getProcesos";
 
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
 
-export default async function Page(
-  {
-    params,
-  }: {
+export default async function Page({
+  params,
+}: {
   params: {
     llaveProceso: string;
   };
-}
-) {
-  const procesosData = getProcesosOwn(
-  );
+}) {
+  const procesosData = getProcesosOwn();
 
-  const [ procesos ] = await Promise.all(
-    [ procesosData, ]
-  );
+  const [procesos] = await Promise.all([
+    procesosData,
+  ]);
 
   return (
     <div className={box.container}>

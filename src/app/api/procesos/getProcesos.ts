@@ -248,11 +248,7 @@ export async function getProcesosOwn(
 }
 
 export async function getProcesoOwn(
-  {
-    llaveProceso,
-  }: {
-  llaveProceso: string;
-}
+  llaveProceso: string
 ) {
   const res = await fetch(
     `${getBaseUrl(

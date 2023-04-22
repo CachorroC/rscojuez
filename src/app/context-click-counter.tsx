@@ -1,45 +1,30 @@
 "use client";
 
-import {
-  useNavigator 
-} from "./navigator-context";
+import { useNavigator } from "./navigator-context";
 
 import React from "react";
 
-import box from "#@/styles/css/box.module.css";
+import box from "##/box.module.css";
 
-import layout from "#@/styles/scss/layout.module.scss";
+import layout from "#s/layout.module.scss";
 
-import {
-  useSearch 
-} from "./search-context";
+import { useSearch } from "./search-context";
 
 import Link from "next/link";
 
-import {
-  poiret 
-} from "../components/typeface";
+import { poiret } from "../components/typeface";
 
 import Card from "#@/components/card";
 
-import {
-  intProceso 
-} from "./api/procesos";
+import { intProceso } from "./api/procesos";
 
-const NavButton = (
-) => {
-  const [
-    isOpen, setIsOpen
-  ] = useNavigator(
-  );
+const NavButton = () => {
+  const [isOpen, setIsOpen] = useNavigator();
 
   if (isOpen) {
     return (
       <button
-        onClick={(
-        ) => setIsOpen(
-          false
-        )}
+        onClick={() => setIsOpen(false)}
         className={layout.NavButton}
       >
         <span className="material-symbols-outlined">
@@ -51,10 +36,7 @@ const NavButton = (
 
   return (
     <button
-      onClick={(
-      ) => setIsOpen(
-        true
-      )}
+      onClick={() => setIsOpen(true)}
       className={layout.NavButton}
     >
       <span className="material-symbols-outlined">
@@ -64,92 +46,72 @@ const NavButton = (
   );
 };
 
-export const Nav = (
-  {
-    procesos,
-  }: {
+export const Nav = ({
+  procesos,
+}: {
   procesos: intProceso[];
-}
-) => {
-  const [
-    isOpen, setIsOpen
-  ] = useNavigator(
-  );
+}) => {
+  const [isOpen, setIsOpen] = useNavigator();
 
-  const [ search ] = useSearch(
-  );
+  const [search] = useSearch();
 
   const rows: any[] = [];
 
-  procesos.forEach(
-    (
-      proceso
-    ) => {
-      const name = proceso.sujetosProcesales;
+  procesos.forEach((proceso) => {
+    const name = proceso.sujetosProcesales;
 
-      const ultimAct = new Date(
-        proceso.fechaUltimaActuacion
-          ? proceso.fechaUltimaActuacion
-          : ""
-      );
+    const ultimAct = new Date(
+      proceso.fechaUltimaActuacion
+        ? proceso.fechaUltimaActuacion
+        : ""
+    );
 
-      const months = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-      ];
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
 
-      const month = months[ultimAct.getMonth(
-      )];
+    const month = months[ultimAct.getMonth()];
 
-      if (
-        proceso.sujetosProcesales
-          .toLowerCase(
-          )
-          .indexOf(
-            search.toLowerCase(
-            )
-          ) === -1
-      ) {
-        return;
-      }
-
-      rows.push(
-        <Card
-          id={proceso.idProceso.toString(
-          )}
-          content={month}
-          title={name}
-          href={`/Procesos/${proceso.idProceso}`}
-          icon={"dataset_linked"}
-        />
-      );
+    if (
+      proceso.sujetosProcesales
+        .toLowerCase()
+        .indexOf(search.toLowerCase()) === -1
+    ) {
+      return;
     }
-  );
+
+    rows.push(
+      <Card
+        id={proceso.idProceso.toString()}
+        content={month}
+        title={name}
+        href={`/Procesos/${proceso.idProceso}`}
+        icon={"dataset_linked"}
+      />
+    );
+  });
 
   if (isOpen === true) {
     return (
       <div className={layout.sidenav}>{rows}</div>
     );
-  }
-  else if (!isOpen) {
+  } else if (!isOpen) {
     return (
       <div className={layout.sidenav}>
         <button
-          onClick={(
-          ) => {
-            setIsOpen(
-              true
-            );
+          onClick={() => {
+            setIsOpen(true);
           }}
         >
           <span className="material-symbols-outlined">
@@ -168,14 +130,14 @@ export const Nav = (
           id={"3"}
           content={""}
           title={"Bancolombia"}
-          href={"/Procesos"}
+          href={"/api/actuaciones"}
           icon={"account_balance"}
         />
         <Card
           id={"4"}
           content={""}
           title={"Reintegra"}
-          href={"/Procesos"}
+          href={"/api/procesos"}
           icon={"integration_instructions"}
         />
       </div>

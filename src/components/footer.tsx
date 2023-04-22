@@ -1,7 +1,6 @@
-import layout from "#@/styles/css/layout.module.css";
+import layout from "##/layout.module.css";
 
-export default function Footer(
-) {
+export default function Footer() {
   return (
     <footer className={layout.footer}>
       <h1>footer</h1>

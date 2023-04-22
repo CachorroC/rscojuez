@@ -1,34 +1,24 @@
-import {
-  Poiret_One 
-} from "next/font/google";
+import { Poiret_One } from "next/font/google";
 
-import styles from "#@/styles/css/blog.module.css";
+import styles from "##/blog.module.css";
 
 import Link from "next/link";
 
-import box from "#@/styles/css/box.module.css";
+import box from "##/box.module.css";
 
-import {
-  intProceso 
-} from "../app/api/procesos";
+import { intProceso } from "../app/api/procesos";
 
-const poiret = Poiret_One(
-  {
-    weight: "400",
-    subsets: [
-      "latin", "latin-ext"
-    ],
-    display: "swap",
-  }
-);
+const poiret = Poiret_One({
+  weight: "400",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+});
 
-export default function Tab(
-  {
-    proceso,
-  }: {
+export default function Tab({
+  proceso,
+}: {
   proceso: intProceso;
-}
-) {
+}) {
   const href: string =
     "Procesos/" +
     proceso.llaveProceso +
