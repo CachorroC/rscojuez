@@ -1,58 +1,37 @@
-import layout from "##/layout.module.css";
+import { getProcesoOwn } from "#@/app/Procesos/api/getProcesos";
+import { getActuaciones } from "#@/app/Procesos/[llaveProceso]/Actuaciones/api/getActuaciones";
+import { ReactNode } from "react";
+import box from '##/box.module.css';
+import Card from "../../../components/card";
+import layout from '##/layout.module.css';
 
-import {
-  ReactNode
-} from "react";
-
-import {
-  getProcesoOwn
-} from "#@/app/api/procesos/getProcesos";
-
-import Link from "next/link";
 
 export default async function Layout (
-  {
-    children,
-    params,
-  }: {
-    children: ReactNode;
-    params: {
-      llaveProceso: string;
-    };
-  }
+  { children, params }: { children: ReactNode, params: { llaveProceso: string; }; }
 ) {
-  const procesos = await getProcesoOwn(
+  const proceso = await getProcesoOwn(
     params.llaveProceso
   );
 
-  const eachProceso = procesos.map(
-    (
-      proceso, index
-    ) => {
-      const idProceso = proceso.idProceso;
-
-      return (
-        <div className={ layout.llaveProceso }
-          key={ index }>
-          <h1>{ proceso.sujetosProcesales }</h1>
-          <Link href={ `/Procesos/${ params.llaveProceso }/${ idProceso }` }>
-            <p>actuaciones</p>
-          </Link>
-          <h1>{ `Expediente número: ${ params.llaveProceso }` }</h1>
-        </div>
-      );
-    }
+  const actuaciones = await getActuaciones(
+    proceso.idProceso
   );
-
-
-  return ( <>
-    <div> {
-      eachProceso
-    }
-    </div>
-    <div className={ layout.llaveProceso }>
+  return (
+    <div className={ box.container }>
+      <div className={ layout.actuaciones }>
+        { actuaciones.map(
+          (
+            actuacion, index
+          ) => {
+            const id = actuacion.consActuacion.toString(
+            );
+            return (
+              <Card id={ id } key={ index } content={ actuacion.anotacion } title={ actuacion.actuacion } href={ `/Procesos/${ params.llaveProceso }/Actuaciones/${ proceso.idProceso }` } icon={ "rocket" } />
+            );
+          }
+        ) }
+      </div>
       { children }
     </div>
-  </>
   );
 }

@@ -13,7 +13,7 @@ export const linksInternos = [
   },
 ];
 
-export const linksExternos: Item[] = [
+export const linksExternos= [
   {
     name: "zero trust",
     href: "https://dash.teams.cloudflare.com",
@@ -28,10 +28,7 @@ export const linksExternos: Item[] = [
   },
 ];
 
-export const demos: {
-  name: string;
-  items: Item[];
-}[] = [
+export const demos= [
   {
     name: "Links Internos",
     items: [
@@ -54,7 +51,7 @@ export const demos: {
         id: 4,
       },
       {
-        href: "/buscar",
+        href: "/",
         name: "Buscar",
         icon: "search",
         id: 5,
@@ -63,15 +60,13 @@ export const demos: {
   },
   {
     name: "Links Externos",
-    items: [
-      {
-        name: "Dash Spotify",
-        href: "/",
-        icon: "search_off",
-        id: 12,
-        description:
+    items: [ {
+      name: "Dash Spotify",
+      href: "/",
+      icon: "search_off",
+      id: 12,
+      description:
           "Create Not Found UI for specific parts of an app",
-      },
-    ],
+    }, ],
   },
 ];

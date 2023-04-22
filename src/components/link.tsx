@@ -18,7 +18,7 @@ export default function NavLink<Y extends string> (
   const [
     isOpen, setIsOpen
   ] = useNavigator(
-    );
+  );
 
   return (
     <Link

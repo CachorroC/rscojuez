@@ -3,9 +3,7 @@
     {
       "path": "."
     },
-    {
-      "path": "../my-app"
-    },
+   
     {
       "path": "../server"
     }

@@ -13,7 +13,7 @@
     "semi": ["error", "always"],
     "arrow-body-style": ["error", "as-needed"],
     "array-bracket-spacing": ["error", "always"],
-    "arrow-spacing": "error",
+   
     "block-spacing": "error",
     "function-call-argument-newline": [
       "error",
@@ -21,16 +21,15 @@
     ],
     "function-paren-newline": ["error", "always"],
     "multiline-ternary": ["error", "always"],
-    "object-curly-newline": ["error", "always"],
     "object-property-newline": "error",
-    "template-tag-spacing": ["error", "always"],
-    "padding-line-between-statements": [
+    "template-tag-spacing": ["error", "always"]
+    /*  "padding-line-between-statements": [
       "error",
       {
         "blankLine": "always",
         "prev": "*",
         "next": "*"
       }
-    ]
+    ] */
   }
 }

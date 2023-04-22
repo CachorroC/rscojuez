@@ -1,6 +1,6 @@
 {
   "name": "rscojuez",
-  "packageManager": "yarn@3.5.0",
+  "packageManager": "pnpm@8.2.0",
   "version": "0.1.0",
   "private": true,
   "scripts": {

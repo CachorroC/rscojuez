@@ -31,12 +31,26 @@ export default function Card<T extends string> (
     icon,
   }: {
     id: string;
-    content: string;
+    content: string | null | undefined;
     title: string;
     href: Route<T> | URL;
     icon: string;
   }
 ) {
+  const hasContent = (
+  ) => {
+    if ( content === null ) {
+      return "no hay contenido";
+
+    }
+    else if ( content === undefined ) {
+      return "no se ha definido el contenido";
+
+    }
+    else {
+      return content;
+    }
+  };
   return (
     <div
       className={ card.layout }
@@ -44,7 +58,8 @@ export default function Card<T extends string> (
     >
       <h4 className={ card.title }>{ title }</h4>
       <hr className={ card.dummytxt }></hr>
-      <p className={ card.content }>{ content }</p>
+      <p className={ card.content }>{ hasContent(
+      ) }</p>
       <hr className={ card.dummytxt }></hr>
       <Link
         href={ href }

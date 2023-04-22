@@ -1,4 +1,6 @@
-import { cache } from "react";
+import {
+  cache 
+} from "react";
 
 export type Category = {
   name: string;
@@ -8,7 +10,8 @@ export type Category = {
 };
 
 export const getCategories = cache(
-  (): Category[] => [
+  (
+  ): Category[] => [
     {
       name: "Electronics",
       idProceso: "electronics",
@@ -82,15 +85,20 @@ export async function fetchCategoryByidProceso(
   idProceso: string | undefined
 ) {
   // Assuming it always return expected categories
-  return getCategories().find(
-    (category) => category.idProceso === idProceso
+  return getCategories(
+  ).find(
+    (
+      category
+    ) => category.idProceso === idProceso
   );
 }
 
-export async function fetchCategories(): Promise<
+export async function fetchCategories(
+): Promise<
   Category[]
-> {
-  return getCategories();
+  > {
+  return getCategories(
+  );
 }
 
 async function findSubCategory(
@@ -98,7 +106,9 @@ async function findSubCategory(
   subCategoryidProceso: string | undefined
 ) {
   return category?.items.find(
-    (category) =>
+    (
+      category
+    ) =>
       category.idProceso === subCategoryidProceso
   );
 }

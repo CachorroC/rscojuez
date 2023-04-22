@@ -1,13 +1,21 @@
-import { useContext } from "react";
+import {
+  useContext 
+} from "react";
 
-import { LevelContext } from "#@/components/procesos-context";
+import {
+  LevelContext 
+} from "#@/components/procesos-context";
 
-export default function Section({
-  children,
-}: {
+export default function Section(
+  {
+    children,
+  }: {
   children: React.ReactNode;
-}) {
-  const level = useContext(LevelContext);
+}
+) {
+  const level = useContext(
+    LevelContext
+  );
 
   return (
     <section className="section">

@@ -6,15 +6,19 @@ import layout from "##/layout.module.css";
 
 import box from "#s/box.module.scss";
 
-import { poiret } from "./typeface";
+import {
+  poiret 
+} from "./typeface";
 
 import card from "##/card.module.css";
 
-export const SkeletonActuacion = ({
-  isLoading,
-}: {
+export const SkeletonActuacion = (
+  {
+    isLoading,
+  }: {
   isLoading?: boolean;
-}) => {
+}
+) => {
   if (isLoading) {
     return (
       <div className={box.container}>

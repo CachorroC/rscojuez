@@ -1,6 +1,8 @@
 import Image from "next/image";
 
-import { Poiret_One } from "next/font/google";
+import {
+  Poiret_One
+} from "next/font/google";
 
 import styles from "##/page.module.css";
 
@@ -10,55 +12,68 @@ import box from "#s/box.module.scss";
 
 import Form from "#@/components/form";
 
-import { demos } from "#@/lib/links";
+import {
+  demos
+} from "#@/lib/links";
 
 import layout from "#s/layout.module.scss";
 
-const poiret = Poiret_One({
-  weight: "400",
-  subsets: ["latin", "latin-ext"],
-  display: "swap",
-});
+const poiret = Poiret_One(
+  {
+    weight: "400",
+    subsets: [
+      "latin", "latin-ext"
+    ],
+    display: "swap",
+  }
+);
 
-export default async function Home() {
+export default async function Home (
+) {
   return (
-    <div className={layout.body}>
-      {demos.map((section) => (
-        <div
-          className={styles.section}
-          key={section.name}
-        >
-          <h1
-            className={`${styles.h1} ${poiret.className}`}
+    <div className={ layout.body }>
+      { demos.map(
+        (
+          section
+        ) => (
+          <div
+            className={ styles.section }
+            key={ section.name }
           >
-            {section.name}
-          </h1>
-          <div className={styles.group}>
-            {" "}
-            {section.items.map((item) => (
-              <Link
-                href={`/Procesos/${item.href}`}
-                key={item.id}
-                className={styles.module}
-              >
-                <h2
-                  className={`${styles.h2} 
-                        ${poiret.className}`}
-                >
-                  {item.name}
-                </h2>
-                {item.description ? (
-                  <p>{item.description}</p>
-                ) : null}
-                <span className="material-symbols-outlined">
-                  {item.icon}
-                </span>
-              </Link>
-            ))}
-            <Form />
+            <h1
+              className={ `${ styles.h1 } ${ poiret.className }` }
+            >
+              { section.name }
+            </h1>
+            <div className={ styles.group }>
+              { " " }
+              { section.items.map(
+                (
+                  item
+                ) => (
+                  <Link
+                    href={ `${ item.href }` }
+                    key={ item.id }
+                    className={ styles.module }
+                  >
+                    <h2
+                      className={ `${ styles.h2 } 
+                        ${ poiret.className }` }
+                    >
+                      { item.name }
+                    </h2>
+
+                    <span className="material-symbols-outlined">
+                      { item.icon }
+                    </span>
+                  </Link>
+                )
+              ) }
+              <Form />
+            </div>
           </div>
-        </div>
-      ))}
+        )
+      ) }
     </div>
   );
 }

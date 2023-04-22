@@ -4,9 +4,12 @@ import Image from "next/image";
 
 import Link from "next/link";
 
-import { CartCount } from "./cart-count";
+import {
+  CartCount 
+} from "./cart-count";
 
-export function Header() {
+export function Header(
+) {
   return (
     <div className="flex items-center justify-between gap-x-3 rounded-lg bg-gray-800 px-3 py-3 lg:px-5 lg:py-4">
       <div className="flex gap-x-3">

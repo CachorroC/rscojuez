@@ -1,55 +1,27 @@
-import { getBaseUrl } from "#@/lib/getBaseUrl";
+import { getProcesoOwn } from '#@/app/Procesos/api/getProcesos';
+import { getActuaciones } from '#@/app/Procesos/[llaveProceso]/Actuaciones/api/getActuaciones';
 
-import box from "#s/box.module.scss";
-
-import { Suspense } from "react";
-
-import { Actuaciones } from "#@/components/actuacion-card";
-
-import { Procesos } from "#@/components/proceso-card";
-
-import card from "##/card.module.css";
-
-import { Search } from "#@/lib/context-input-search";
-
-import {
-  fetchActuaciones,
-  getActuaciones,
-} from "../../api/actuaciones/getActuaciones";
-
-import { getProcesosOwn } from "../../api/procesos/getProcesos";
-
-process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
-
-export default async function Page({
-  params,
-}: {
-  params: {
-    llaveProceso: string;
-  };
-}) {
-  const procesosData = getProcesosOwn();
-
-  const [procesos] = await Promise.all([
-    procesosData,
-  ]);
-
+import layout from '##/layout.module.css';
+import Card from '#@/components/card';
+export default async function Page (
+  { params }: { params: { llaveProceso: string; }; }
+) {
+  const proceso = await getProcesoOwn(
+    params.llaveProceso
+  );
+  const actuaciones = await getActuaciones(
+    proceso.idProceso
+  );
   return (
-    <div className={box.container}>
-      <h1 className={card.title}>
-        {params.llaveProceso}
-      </h1>
-      <Search procesos={procesos} />
-
-      <Suspense
-        fallback={
-          <div className={box.container}>
-            loading ...
-          </div>
-        }
-      >
-        <Procesos procesos={procesos} />
-      </Suspense>
+    <div className={ layout.llaveProceso }>
+      {
+        actuaciones.map(
+          (
+            actuacion, index
+          ) => ( <Card id={ actuacion.consActuacion.toString(
+          ) } key={ index } content={ actuacion.anotacion } title={ actuacion.actuacion } href={ '/' } icon={ 'star' } /> )
+        )
+      }
     </div>
   );
 }

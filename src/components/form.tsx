@@ -1,40 +1,73 @@
 "use client";
 
-import { SetStateAction, useState } from "react";
+import {
+  SetStateAction, useState 
+} from "react";
 
-export default function Form() {
-  const [answer, setAnswer] = useState("");
+export default function Form(
+) {
+  const [
+    answer, setAnswer
+  ] = useState(
+    ""
+  );
 
-  const [error, setError] = useState(null);
+  const [
+    error, setError
+  ] = useState(
+    null
+  );
 
-  const [status, setStatus] = useState("typing"); // 'typing', 's
+  const [
+    status, setStatus
+  ] = useState(
+    "typing"
+  ); // 'typing', 's
 
   if (status === "success") {
     return <h1>{status}</h1>;
   }
 
-  async function handleSubmit(e: {
+  async function handleSubmit(
+    e: {
     preventDefault: () => void;
-  }) {
-    e.preventDefault();
+  }
+  ) {
+    e.preventDefault(
+    );
 
-    setStatus("submitting");
+    setStatus(
+      "submitting"
+    );
 
     try {
-      await submitForm(answer);
+      await submitForm(
+        answer
+      );
 
-      setStatus("success");
-    } catch (err) {
-      setStatus("typing");
+      setStatus(
+        "success"
+      );
+    }
+    catch (err) {
+      setStatus(
+        "typing"
+      );
 
-      setError(null);
+      setError(
+        null
+      );
     }
   }
 
-  function handleTextareaChange(e: {
+  function handleTextareaChange(
+    e: {
     target: { value: SetStateAction<string> };
-  }) {
-    setAnswer(e.target.value);
+  }
+  ) {
+    setAnswer(
+      e.target.value
+    );
   }
 
   return (
@@ -67,22 +100,35 @@ export default function Form() {
   );
 }
 
-function submitForm(answer: string) {
+function submitForm(
+  answer: string
+) {
   // Pretend it's hitting the network.
-  return new Promise<void>((resolve, reject) => {
-    setTimeout(() => {
-      const shouldError =
-        answer.toLowerCase() !== "lima";
+  return new Promise<void>(
+    (
+      resolve, reject
+    ) => {
+      setTimeout(
+        (
+        ) => {
+          const shouldError =
+        answer.toLowerCase(
+        ) !== "lima";
 
-      if (shouldError) {
-        reject(
-          new Error(
-            "Good guess but a wrong answer. Try again!"
-          )
-        );
-      } else {
-        resolve();
-      }
-    }, 1500);
-  });
+          if (shouldError) {
+            reject(
+              new Error(
+                "Good guess but a wrong answer. Try again!"
+              )
+            );
+          }
+          else {
+            resolve(
+            );
+          }
+        },
+        1500
+      );
+    }
+  );
 }

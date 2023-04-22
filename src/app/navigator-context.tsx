@@ -1,6 +1,8 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import {
+  useParams 
+} from "next/navigation";
 
 import {
   Dispatch,
@@ -10,33 +12,49 @@ import {
   useState,
 } from "react";
 
-import { SetStateAction } from "react";
+import {
+  SetStateAction 
+} from "react";
 
 const NavContext = createContext<
   | [boolean, Dispatch<SetStateAction<boolean>>]
   | undefined
->(undefined);
+>(
+  undefined
+);
 
-export function NavProvider({
-  children,
-}: {
+export function NavProvider(
+  {
+    children,
+  }: {
   children: ReactNode;
-}) {
-  const params = useParams();
+}
+) {
+  const params = useParams(
+  );
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [
+    isOpen, setIsOpen
+  ] = useState(
+    false
+  );
 
   return (
     <NavContext.Provider
-      value={[isOpen, setIsOpen]}
+      value={[
+        isOpen, setIsOpen
+      ]}
     >
       {children}
     </NavContext.Provider>
   );
 }
 
-export function useNavigator() {
-  const context = useContext(NavContext);
+export function useNavigator(
+) {
+  const context = useContext(
+    NavContext
+  );
 
   if (context === undefined) {
     throw new Error(
